@@ -1,0 +1,32 @@
+{% extends "baseUser.html" %}
+{% load staticfiles %}
+{% block titlepage %}
+    Login
+{% endblock titlepage %}
+{% block bodycontent %}
+ 
+ 
+      <form class="form-signin" method="POST">{% csrf_token %}
+        <h2 class="form-signin-heading">Ingreso de Usuarios</h2>
+        <div class="login-wrap">
+            <div class="user-login-info">
+                  
+
+                  {{login_form.username}}
+                  {{login_form.password}}
+            </div>
+         
+            <button class="btn btn-lg btn-login btn-block" type="submit" name="login_form">Login</button>
+
+            
+
+        </div>
+
+        
+
+      </form>
+ 
+
+    {% endblock bodycontent %}
+
+

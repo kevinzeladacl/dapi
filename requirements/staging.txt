@@ -1,0 +1,9 @@
+Django==1.11.4
+django-cors-headers==2.1.0
+django-extra-fields==0.9
+django-filter==1.1.0
+djangorestframework==3.6.3
+olefile==0.44
+Pillow==4.2.1
+pytz==2017.2
+Unipath==1.1

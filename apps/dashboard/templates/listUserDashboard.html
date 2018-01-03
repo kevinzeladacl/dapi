@@ -1,0 +1,90 @@
+{% extends "baseDashboard.html" %}
+{% block titlepage %}
+    APPEGO - Lista de Usuarios
+{% endblock titlepage %}
+	{% block bodycontent %}
+		<header class="panel-heading">
+			Lista de Usuarios
+			<hr>
+			<a href="{% url 'createUserDashboard' %}">
+                <button class="btn btn-primary">Crear Usuario</button>
+            </a>
+			<span class="tools pull-right">
+			<a href="javascript:;" class="fa fa-chevron-down"></a>
+			</span>
+		</header>
+		<div class="panel-body">
+		 
+          
+                    
+                    <div class="adv-table">
+                    <table  class="display table table-bordered table-striped" id="dynamic-table">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Usuario</th>
+                        <th>Correo</th>
+                        <th>Tipo</th>
+                        <th>Opciones</th>
+                      
+                    </tr>
+                    </thead>
+                    <tbody>
+                   {% for user  in list_users %}
+                   	
+                  
+                    <tr class="gradeX">
+                        <td>{{user.first_name|upper}} {{user.last_name|upper}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>
+                          {% if user.type_user == 99 %}
+                            Administrador
+                          {% elif user.type_user == 0 %}
+                            Usuario
+                          {% endif %}
+                        </td>
+                        <td>
+                          <a href="{% url 'viewUserDashboard' user.id %}">
+                            <button class="btn btn-primary">Ver</button>
+                          </a>
+                            <a href="{% url 'updateUserDashboard' user.id %}">
+                                <button class="btn btn-warning">Editar</button>
+                            </a>
+                            <button class="btn btn-danger" data-toggle="modal" href="#{{user.id}}">Eliminar</button>
+                        </td>
+                    </tr>
+                     <!-- Modal Delete Client -->
+                      <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="{{user.id}}" class="modal fade">
+                          <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                      <h4 class="modal-title">¿Seguro que quiere eliminar a <strong>{{user.username|upper}}</strong>?</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="alert alert-danger">
+                                        <span class="alert-icon"><i class="fa fa-warning"></i></span>
+                                        <div class="notification-info">
+                                            <h3>¡Cuidado! Esta acción es irreversible.</h3>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
+                                      <a href="{% url 'deleteUserDashboard' user.id %}">
+                                        <button class="btn btn-danger" type="button">Si, Borrar.</button>
+                                      </a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- modal -->
+                     {% endfor %}
+                    </tfoot>
+                    </table>
+                    </div>
+                    </div>
+        
+        
+	{% endblock bodycontent %}
