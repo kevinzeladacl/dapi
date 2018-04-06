@@ -31,14 +31,13 @@ cd dapi
 ./setup.sh
 ```
 And later
-
 ```
-./runlocal.sh
+./runlocalforce.sh
 ```
 Or with output console
 
 ```
-python3 manage.py runserver
+./runlocal.sh
 ```
 Finally enter the following url in your browser
 ```
@@ -53,7 +52,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-*  Django
+* Django
 * Django Framework
 * Bootstrap
 
@@ -61,7 +60,7 @@ And can see more in the following URL [requirements/staging.txt](dapi/requiremen
 
  
 ## Versioning
-See more in [CHANGELOG](dapi/CHANGELOG.MG)
+See more in [CHANGELOG](CHANGELOG.md)
 
 
  

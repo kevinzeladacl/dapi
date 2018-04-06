@@ -1,4 +1,5 @@
 #!/bin/bash
+ps ax | grep "0.0.0.0:7799" | grep -v grep | awk '{print $1}' | xargs kill
 clear
 echo "......................................................................"
 echo "By KevinZelada.cl"
