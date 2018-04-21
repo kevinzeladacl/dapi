@@ -7,3 +7,4 @@ olefile==0.44
 Pillow==4.2.1
 pytz==2017.2
 Unipath==1.1
+alfred-tools
