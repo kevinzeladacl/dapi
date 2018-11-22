@@ -8,7 +8,7 @@ from dapi import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/'+ settings.API_VERSION, include('apps.api.urls')),
+    url(r'^api/'+ settings.API_VERSION +"/", include('apps.api.urls')),
     url(r'^',include('apps.dashboard.urls')),
     url(r'^users/',include('apps.users.urls')),
     
