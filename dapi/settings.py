@@ -44,7 +44,7 @@ INSTALLED_APPS = [
  
 
     # PLUGINS #
-
+    'alfred-tools',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
