@@ -1,168 +1,190 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="ThemeBucket">
-    <link rel="shortcut icon" href="images/favicon.png">
-
-    <title> DAPI - {% block titlepage %}
-        
-    {% endblock titlepage %}</title>
-
-    <!--Core CSS -->
-    <link href="{% static 'bs3/css/bootstrap.min.css'%}" rel="stylesheet">
-    <link href="{% static 'css/bootstrap-reset.css'%}" rel="stylesheet">
-    <link href="{% static 'font-awesome/css/font-awesome.css'%}" rel="stylesheet" />
-
-    <!--dynamic table-->
-    <link href="{% static 'js/advanced-datatable/css/demo_page.css' %}" rel="stylesheet" />
-    <link href="{% static 'js/advanced-datatable/css/demo_table.css' %}" rel="stylesheet" />
-    <link rel="stylesheet" href="{% static 'js/data-tables/DT_bootstrap.css' %}" />
-
-    <!-- Custom styles for this template -->
-    <link href="{% static 'css/style.css'%}" rel="stylesheet">
-    <link href="{% static 'css/style-responsive.css'%}" rel="stylesheet" />
-
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]>
-    <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>DAPI | CONTENT MANAGER</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css'%}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css'%}">
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="{% static 'vendors/datatables.net-bs4/dataTables.bootstrap4.css'%}">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/horizontal-layout-light/style.css'%}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{% static 'images/favicon.png'%}" />
 </head>
 
 <body>
+  <div class="container-scroller">
+    <!-- partial:partials/_horizontal-navbar.html -->
+    <div class="horizontal-menu">
+      <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+        <div class="container">
+          <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo" href="index.html"><img src="{% static 'images/logo-contrata.svg'%}" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{% static 'images/logo-contrata.svg'%}" alt="logo"/></a>
+          </div>
+          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            <ul class="navbar-nav navbar-nav-right">
+               
+              <li class="nav-item nav-profile dropdown">
+                <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+                  <img src="{% static 'images/faces/face28.jpg'%}" alt="profile"/>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" href="{% url 'logoutDashboard' %}">
+                    <i class="ti-power-off text-primary"></i>
+                    Logout
 
-<section id="container" >
-<!--header start-->
-<header class="header fixed-top clearfix">
-<!--logo start-->
-<div class="brand">
-
-    <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="">
-    </a>
-    <div class="sidebar-toggle-box">
-        <div class="fa fa-bars"></div>
-    </div>
-</div>
-<!--logo end-->
-
-<div class="nav notify-row" id="top_menu">
-    <!--  notification start -->
-    <ul class="nav top-menu">
-       
-        
-    </ul>
-    <!--  notification end -->
-</div>
-<div class="top-nav clearfix">
-    <!--search & user info start-->
-    <ul class="nav pull-right top-menu">
-        
-        <!-- user login dropdown start-->
-        <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle icon-user" href="#">
-                <!--<img alt="" src="images/avatar1_small.jpg">-->
-                <i class="fa fa-user"></i>
-                <span class="username">{{request.user}}</span>
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="{% url 'logoutView' %}"><i class="fa fa-key"></i> Log Out</a></li>
+                  </a>
+                </div>
+              </li>
             </ul>
-        </li>
-        <!-- user login dropdown end -->
-        
-    </ul>
-    <!--search & user info end-->
-</div>
-</header>
-<!--header end-->
-<aside>
-    <div id="sidebar" class="nav-collapse">
-        <!-- sidebar menu start-->            <div class="leftside-navigation">
-            <ul class="sidebar-menu" id="nav-accordion">
-            <li>
-                <a href="{% url 'indexDashboard' %}">
-                    <i class="fa fa-dashboard"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'listUserDashboard' %}">
-                    <i class="fa fa-dashboard"></i>
-                    <span>Usuarios</span>
-                </a>
-            </li>
-             
-        </ul></div>        
-<!-- sidebar menu end-->
-    </div>
-</aside>
-<!--sidebar end-->
-    <!--main content start-->
-    <section id="main-content">
-        <section class="wrapper">
-        <!-- page start-->
-
-        <div class="row">
-            <div class="col-sm-12">
-                <section class="panel">
-                    {% block bodycontent %}
-                        
-                    {% endblock bodycontent %}
-                </section>
-            </div>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+              <span class="ti-menu"></span>
+            </button>
+          </div>
         </div>
-        <!-- page end-->
-        </section>
-    </section>
-    <!--main content end-->
- 
+      </nav>
+      <nav class="bottom-navbar">
+        <div class="container">
+          <ul class="nav page-navigation">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'indexDashboard' %}">
+                <i class="ti-home menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'listAgreementDashboard' %}" >
+                <i class="ti-files menu-icon"></i>
+                <span class="menu-title">Gestión de Acuerdos</span>
+              </a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="pages/widgets/widgets.html">
+                <i class="ti-stamp menu-icon"></i>
+                <span class="menu-package">Disputas</span>
+              </a>
+            </li>
+           <li class="nav-item">
+              <a class="nav-link"  href="{% url 'listTypeAgreementDashboard' %}">
+                <i class="ti-write menu-icon"></i>
+                <span class="menu-title">Plantilla de Contratos</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'listProductFileDashboard' %}">
+                <i class="ti-shopping-cart menu-icon"></i>
+                <span class="menu-package">Productos</span>
+              </a>
+            </li>
 
-</section>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'listUserDashboard' %}">
+                <i class="ti-user menu-icon"></i>
+                <span class="menu-title">Usuarios</span>
+              </a>
+            </li>
 
-<!-- Placed js at the end of the document so the pages load faster -->
+          </ul>
+        </div>
+      </nav>
+    </div>
 
-<!--Core js-->
-<script src="{% static 'js/jquery.js'%}"></script>
-<script src="{% static 'bs3/js/bootstrap.min.js'%}"></script>
-<script class="include" type="text/javascript" src="{% static 'js/jquery.dcjqaccordion.2.7.js'%}"></script>
-<script src="{% static 'js/jquery.scrollTo.min.js'%}"></script>
-<script src="{% static 'js/jQuery-slimScroll-1.3.0/jquery.slimscroll.js'%}"></script>
-<script src="{% static 'js/jquery.nicescroll.js'%}"></script>
-<!--Easy Pie Chart-->
-<script src="{% static 'js/easypiechart/jquery.easypiechart.js'%}"></script>
-<!--Sparkline Chart-->
-<script src="{% static 'js/sparkline/jquery.sparkline.js'%}"></script>
-<!--jQuery Flot Chart-->
-<script src="{% static 'js/flot-chart/jquery.flot.js'%}"></script>
-<script src="{% static 'js/flot-chart/jquery.flot.tooltip.min.js'%}"></script>
-<script src="{% static 'js/flot-chart/jquery.flot.resize.js'%}"></script>
-<script src="{% static 'js/flot-chart/jquery.flot.pie.resize.js'%}"></script>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <div class="main-panel">
+        <div class="content-wrapper">
+          {% block bodycontent %}
+             
+           {% endblock bodycontent %} 
 
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="w-100 clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018 <a href="http://www.contratapp.cl/" target="_blank">Contratapp</a>. All rights reserved.</span>
+            
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
 
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js'%}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="{% static 'vendors/chart.js/Chart.min.js'%}"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js'%}"></script>
+  <script src="{% static 'js/hoverable-collapse.js'%}"></script>
+  <script src="{% static 'js/template.js'%}"></script>
+  <script src="{% static 'js/settings.js'%}"></script>
+  <script src="{% static 'js/todolist.js'%}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js'%}"></script>
+  <script src="{% static 'js/todolist.js'%}"></script>
+  <!-- End custom js for this page-->
 
-<!--dynamic table-->
-<script type="text/javascript" language="javascript" src="{% static 'js/advanced-datatable/js/jquery.dataTables.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/data-tables/DT_bootstrap.js' %}"></script>
- 
-<!--dynamic table initialization -->
-<script src="{% static 'js/dynamic_table_init.js' %}"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+  <script src="{% static 'vendors/datatables.net/jquery.dataTables.js'%}"></script>
+  <script src="{% static 'vendors/datatables.net-bs4/dataTables.bootstrap4.js'%}"></script>
 
+  <script>
+$(document).ready(function() {
+ $('#summernote').summernote({
+  height: 300,                 // set editor height
+  minHeight: null,             // set minimum height of editor
+  maxHeight: null,             // set maximum height of editor
+  focus: true                  // set focus to editable area after initializing summernote
+});
 
+});
 
-<!--common script init for all pages-->
-<script src="{% static 'js/scripts.js'%}"></script>
+(function($) {
+  'use strict';
+  $(function() {
+    $('#order-listing').DataTable({
+      "aLengthMenu": [
+        [5, 10, 15, -1],
+        [5, 10, 15, "All"]
+      ],
+      "iDisplayLength": 25,
+      "language": {
+        search: ""
+      }
+    });
+    $('#order-listing').each(function() {
+      var datatable = $(this);
+      // SEARCH - Add the placeholder for Search and Turn this into in-line form control
+      var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
+      search_input.attr('placeholder', 'Buscar');
+      search_input.removeClass('form-control-sm');
+      // LENGTH - Inline-Form control
+      var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
+      length_sel.removeClass('form-control-sm');
+    });
+  });
+})(jQuery);
+  </script>
 
 </body>
+
 </html>

@@ -1,15 +1,13 @@
 {% extends "baseDashboard.html" %}
+{% load staticfiles %} 
 {% block titlepage %}
- Dashboard
+    Panel Dashboard
 {% endblock titlepage %}
-	{% block bodycontent %}
-		<header class="panel-heading">
-			Bienvenido al panel de administración
-			<span class="tools pull-right">
-			<a href="javascript:;" class="fa fa-chevron-down"></a>
-			</span>
-		</header>
-		<div class="panel-body">
-			This is a sample page
-		</div>
-	{% endblock bodycontent %}
+{% block breadcrumpage %}
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'indexDashboard' %}">Dashboard</a></li>    
+{% endblock breadcrumpage %}
+{% block bodycontent %}
+  
+          
+           
+{% endblock bodycontent %}

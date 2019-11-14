@@ -1,6 +1,8 @@
-# DAPI
-
+# DAPI 2
 Base of API Rest with DjangoRestFramework + TokenAuthentication + ContentManagerWeb
+
+URL DOCS POSTMAN: [API DOCUMENTATION]()
+
 
 ## Getting Started
 
@@ -13,7 +15,7 @@ What things you need to install the software and how to install them
 ```
 
  - Python 3.x
-
+ - pip install python3-pip python3-dev libpq-dev  
 ```
 
 ### Installing
@@ -22,23 +24,34 @@ A step by step series of examples that tell you have to get a development env ru
 
 #### Unix, Linux or OSX
 Say what the step will be
+```
+git clone git@github.com:kevinzeladacl/dapi.git
+```
+Install virtualenv and run it
+```
+pip install virtualenv
+```
+```
+virtualenv env3
+```
+```
+source env3/bin/activate
+```
+
+Later,
+
 
 ```
 cd dapi
 ```
 
 ```
-./setup.sh
+./run.sh
 ```
-And later
 ```
-./runlocalforce.sh
+Select '999' option - Install Project
 ```
-Or with output console
 
-```
-./runlocal.sh
-```
 Finally enter the following url in your browser
 ```
  http://127.0.0.1:8000
@@ -62,16 +75,12 @@ And can see more in the following URL [requirements/staging.txt](dapi/requiremen
 ## Versioning
 See more in [CHANGELOG](CHANGELOG.md)
 
-
  
 ## Authors
 [@kevinzelada.cl](https://github.com/kevinzeladacl/)
+
  
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 [MIT](dapi/LICENSE)
- 
- 
-
- 

@@ -28,31 +28,38 @@ class UserManager(BaseUserManager, models.Manager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email']
-    objects = UserManager()
- 
+
+    #general
     username = models.CharField(max_length=100, unique=True)
-    first_name = models.CharField(max_length=100,blank=True)
-    last_name = models.CharField(max_length=100,blank=True)
-    email = models.EmailField()
     join_date = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
- 
+    email = models.EmailField()
+    #personal
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+
+    #extras
+    avatar = models.ImageField(upload_to="avatar",blank=True)
+    type_user = models.IntegerField(default=0,choices=type_user_choice)
+
     
+    
+
+
+
+    objects = UserManager()
+    
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email',]
 
     def get_short_name(self):
         return self.username
 
 
- 
-   
- 
 
 
 
 
 
-    
 

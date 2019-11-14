@@ -1,57 +1,46 @@
 {% extends "baseDashboard.html" %}
+{% load staticfiles %} 
 {% block titlepage %}
- Actualizar un Usuario
+    Panel Dashboard
 {% endblock titlepage %}
-	{% block bodycontent %}
-		<header class="panel-heading">
-			 Actualizar un Usuario
-			<span class="tools pull-right">
-			<a href="javascript:;" class="fa fa-chevron-down"></a>
-			</span>
-		</header>
-		<div class="panel-body">
-			<form method="POST" class="form-horizontal" enctype="multipart/form-data" >{% csrf_token %}
-				<div class="form-group">
-                    <label for="id_first_name" class="col-lg-2 col-sm-2 control-label">Nombre</label>
-                    <div class="col-lg-10">
-                        {{form.first_name}}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="id_last_name" class="col-lg-2 col-sm-2 control-label">Apellido</label>
-                    <div class="col-lg-10">
-                        {{form.last_name}}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="id_username" class="col-lg-2 col-sm-2 control-label">Usuario</label>
-                    <div class="col-lg-10">
-                       {{form.username}}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="id_email" class="col-lg-2 col-sm-2 control-label">Email</label>
-                    <div class="col-lg-10">
-                      {{form.email}}
-                    </div>
-                </div>
-                 <div class="form-group">
-                    <label for="id_type_user" class="col-lg-2 col-sm-2 control-label">Tipo de Usuario</label>
-                    <div class="col-lg-10">
-                      {{form.type_user}}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="id_password" class="col-lg-2 col-sm-2 control-label">Password</label>
-                    <div class="col-lg-10">
-                      {{form.password}}
-                    </div>
-                </div>
-			    <div class="form-group">
-                    <div class="col-lg-offset-2 col-lg-10">
-                          <button type="submit" class="btn btn-success">Actualizar Usuario</button>
-                    </div>
-                </div>
-			</form>
-		</div>
-	{% endblock bodycontent %}
+{% block breadcrumpage %}
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'indexDashboard' %}">Dashboard</a></li>    
+{% endblock breadcrumpage %}
+{% block bodycontent %}
+   <div class="row">
+      <div class="col-md-8 offset-2 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          
+          <form class="forms-sample" method="POST"> {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputUsername1">Nombre</label>
+              {{form.first_name}}
+            </div>
+          
+            <div class="form-group">
+              <label for="exampleInputUsername1">Apellido</label>
+              {{form.last_name}}
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputUsername1">Rut</label>
+              {{form.rut}}
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputUsername1">Email</label>
+              {{form.email}}
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputUsername1">Tipo</label>
+              {{form.type_user}}
+            </div>
+            <button type="submit" class="btn btn-block btn-primary mr-2">Actualizar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock bodycontent %}

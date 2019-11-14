@@ -1,20 +1,27 @@
-from django.conf.urls import url
-from . import views
+from django.contrib import admin
+from django.urls import path,include
 
+from . import views
+ 
 urlpatterns = [
-    url(r'^$', views.indexDashboard,name="indexDashboard"),
+    
+     
+	
+    #User
+    path('', views.indexDashboard ,name="indexDashboard"),    
+    path('login/', views.loginDashboard ,name="loginDashboard"),
+    path('logout/', views.logoutDashboard ,name="logoutDashboard"),
+    # path('register/', views.registerDashboard ,name="registerDashboard"),
+     
+
+    #MODULE USERS
+    path('users/list', views.listUserDashboard,name="listUserDashboard"),
+    path('users/create', views.createUserDashboard,name="createUserDashboard"),
+    path('users/view/<pk>', views.viewUserDashboard,name="viewUserDashboard"),
+    path('users/update/<pk>', views.updateUserDashboard,name="updateUserDashboard"),
+    path('users/delete/<pk>', views.deleteUserDashboard,name="deleteUserDashboard"),
  
 
-
-    
- 	#MODULE USERS
-    url(r'^users/list$', views.listUserDashboard,name="listUserDashboard"),
-    url(r'^users/create$', views.createUserDashboard,name="createUserDashboard"),
-    url(r'^users/view/(?P<pk>[0-9]+)/$', views.viewUserDashboard,name="viewUserDashboard"),
-    url(r'^users/update/(?P<pk>[0-9]+)/$', views.updateUserDashboard,name="updateUserDashboard"),
-    url(r'^users/delete/(?P<pk>[0-9]+)/$', views.deleteUserDashboard,name="deleteUserDashboard"),
-
-	 
 
 ]
 

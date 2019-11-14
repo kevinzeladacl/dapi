@@ -1,45 +1,72 @@
+#general
 from rest_framework.serializers import  *
-from apps.users.models import *
-from apps.notifications.models import * 
- 
+from drf_extra_fields.fields import Base64ImageField
+from rest_framework.validators import UniqueTogetherValidator
+from datetime import date
+from random import randint
+from drf_extra_fields.fields import Base64ImageField
 
-from rest_framework.authtoken.models import Token
+#models
+from apps.users.models import *
+
+#
+from django.core.mail import send_mail
+from django.conf import settings
+
+
+
 
 #########################################
 ##  SERIALIZERS MODULE USERS           ## 
 #########################################
+
 class UserSerializer(ModelSerializer):
 	class Meta:		 
 		model = User 
-		fields = ('pk','first_name','username','email','join_date','is_active','is_staff','password',)
+		fields = (
+			'pk',
+			'email',
+			'first_name',
+			'last_name',
+			'join_date',
+			'type_user',
+			'is_active',
+			'is_staff',
+			'password',
+
+		)
+
+		validators = [
+            UniqueTogetherValidator(
+                queryset=User.objects.all(),
+                fields=['email'],
+                message="Usuario ya registrado",
+            )
+        ]
+
 
 	def create(self, validated_data):
-	    user = User(
-	        email=validated_data['email'],
-	        username=validated_data['username']
-	    )
-	    user.set_password(validated_data['password'])
-	    user.save()
-	    return user
+		if User.objects.filter(email=validated_data['email']).count() != 0:
+			pass
+		else:
+		    user = User(
+		        email=validated_data['email'],
+		        username=validated_data['email'],
+		        first_name=validated_data['first_name'],
+		        last_name=validated_data['last_name'],
+		    )
+		    user.set_password(validated_data['password'])
+		    user.save()
+		    return user
 
- 
-#########################################
-##  SERIALIZERS MODULE NOTIFICATIONS   ## 
-#########################################
-
-class MessageSerializer(ModelSerializer):
-	class Meta:
-		model = Message
-		fields = ('pk','from_user','to_user','desc','date_time','status')
-
-
-
-
- 
-
-
-
-
+	def update(self, instance, validated_data):
+		instance.email = validated_data.get('email',instance.email)
+		instance.username = validated_data.get('email',instance.username)
+		instance.first_name = validated_data.get('first_name',instance.first_name)
+		instance.last_name = validated_data.get('last_name',instance.last_name)
+		instance.set_password(validated_data.get('password'))
+		instance.save()
+		return instance
 
 
 
