@@ -9,23 +9,3 @@ class UserAdmin(admin.ModelAdmin):
     )
 
 
-@admin.register(CategoryPro)
-class CategoryProAdmin(admin.ModelAdmin):
-    list_display = (
-        'pk',
-    )
-
-@admin.register(ProfilePro)
-class ProfileProeAdmin(admin.ModelAdmin):
-    list_display = (
-        'pk',
-    )
-
-@admin.register(CommentPro)
-class CommentProeAdmin(admin.ModelAdmin):
-    list_display = (
-        'pk',
-    )
-
-
-
