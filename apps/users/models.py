@@ -41,7 +41,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     #extras
     avatar = models.ImageField(upload_to="avatar",blank=True)
-    type_user = models.IntegerField(default=0,choices=type_user_choice)
+    type_user = models.IntegerField(default=0)
 
     
     
