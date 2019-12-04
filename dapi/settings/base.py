@@ -40,8 +40,6 @@ PROJECT_APPS = (
     'apps.users',
     'apps.dashboard',
     'apps.api',
-    'apps.agreements',
-    'apps.webpay',
     'apps.drp',
     'apps.website',
 )
@@ -131,9 +129,3 @@ MEDIA_ROOT = BASE_DIR.child('media')
 
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'contratappdeveloper@gmail.com'
-EMAIL_HOST_PASSWORD = 'Pass2019++$$'
