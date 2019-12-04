@@ -1,6 +1,5 @@
 from django import forms
 from apps.users.models import *
-from apps.agreements.models import *
 
 
 class LoginForm(forms.Form):
