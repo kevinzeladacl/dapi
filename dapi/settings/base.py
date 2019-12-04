@@ -41,7 +41,6 @@ PROJECT_APPS = (
     'apps.dashboard',
     'apps.api',
     'apps.drp',
-    'apps.website',
 )
 
 THIRD_PARTY_APPS = (
