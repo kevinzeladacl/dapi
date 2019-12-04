@@ -9,10 +9,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     
 	#custom dapi
-	path('', include('apps.website.urls')),
 	path('api/v1/', include('apps.api.urls')),
 	path('dashboard/', include('apps.dashboard.urls')),
-	path('webpay/', include('apps.webpay.urls')),
 	path('users/', include('apps.users.urls')),
 	path('reset_password/', include('apps.drp.urls')),
 	#default
