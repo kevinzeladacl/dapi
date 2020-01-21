@@ -1,10 +1,12 @@
-# Changelog
+# Changelog : Current Version 2.1.0
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-
+## 2.1.0 - 2020-01-20
+### Update
+- Upload version 2.1.0: Changes in Main script and requierements file.
 
 ## 2.0.0 - 2019-11-14
 ### Update
