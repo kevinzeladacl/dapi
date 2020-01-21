@@ -69,7 +69,7 @@ Add additional notes about how to deploy this on a live system
 * Django Framework
 * Bootstrap
 
-And can see more in the following URL [requirements/staging.txt](dapi/requirements/staging.txt)
+And can see more in the following URL [requirements.txt](dapi/requirements.txt)
 
  
 ## Versioning
@@ -80,7 +80,7 @@ See more in [CHANGELOG](CHANGELOG.md)
 [@kevinzelada.cl](https://github.com/kevinzeladacl/)
 
  
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors]() who participated in this project.
 
 ## License
 [MIT](dapi/LICENSE)
