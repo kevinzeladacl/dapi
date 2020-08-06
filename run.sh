@@ -37,7 +37,7 @@ read option
 case $option in
   999) 
      echo "Installing now ..."
-     pip install -r requirements.txt
+     pip install -r requirements/staging.txt
      python3 manage.py makemigrations --settings=dapi.settings.local
      python3 manage.py migrate --settings=dapi.settings.local
   ;;
