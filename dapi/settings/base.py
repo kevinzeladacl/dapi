@@ -37,10 +37,9 @@ DJANGO_APPS = (
 )
 
 PROJECT_APPS = (
-    'apps.users',
-    'apps.dashboard',
     'apps.api',
-    'apps.drp',
+    'apps.users',
+    
 )
 
 THIRD_PARTY_APPS = (

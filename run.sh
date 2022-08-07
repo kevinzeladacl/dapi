@@ -18,16 +18,19 @@ PROJECT: <your_project_name>
 
 SELECT A OPTION (enter number):
 
+
+============ GENERAL OPTIONS ==========
+999 - INSTALL PROJECT LOCAL
+
 ============LOCAL/DEV OPTIONS ==========
 0 - RUN WITH DEBUG CONSOLE (DEV)
 1 - AUTO LOCAL MIGRATIONS
 2 - CREATE SUPER USER LOCAL
 
-
 ============PROD OPTIONS ==========
-51 - RUN WITH DEBUG CONSOLE (PROD)
+51 - RUN MANUAL WITH DEBUG CONSOLE (PROD)
 52 - AUTO PROD MIGRATIONS
-999 - INSTALL PROJECT LOCAL
+
 
 ===========================================================================================
 

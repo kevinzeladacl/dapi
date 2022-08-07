@@ -1,5 +1,5 @@
-# DAPI 2.1.0
-Base of API Rest with DjangoRestFramework + TokenAuthentication + ContentManagerWeb
+# DAPI 3.0.0
+Base of API Rest with DjangoRestFramework + TokenAuthentication
 
 URL DOCS POSTMAN: [API DOCUMENTATION]()
 

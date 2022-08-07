@@ -10,9 +10,7 @@ urlpatterns = [
     
 	#custom dapi
 	path('api/v1/', include('apps.api.urls')),
-	path('dashboard/', include('apps.dashboard.urls')),
-	path('users/', include('apps.users.urls')),
-	path('reset_password/', include('apps.drp.urls')),
+	
 	#default
     path('admin/', admin.site.urls),
 
