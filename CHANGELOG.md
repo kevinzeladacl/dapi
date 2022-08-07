@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## 2.1.0 - 2020-01-20
 ### Update
+- Upload version 4.0.0: Update requirements and django's version.
+
+## 2.1.0 - 2020-01-20
+### Update
 - Upload version 2.1.0: Changes in Main script and requierements file.
 
 ## 2.0.0 - 2019-11-14
